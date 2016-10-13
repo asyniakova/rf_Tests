@@ -1,0 +1,18 @@
+***Settings***
+Resource  ../libs.txt
+***Variables***
+${btn_login}  id=logIn
+${lnk_fgt_pwd}  xpath=//a[contains(@href,'/accounts/password/reset/')]
+${inp_email}  id=id_email
+${btn_send}  xpath=//input[contains(@value,'Send')]
+***Keywords***
+Click Login Button On Header Page
+  Click Element  ${btn_login} 
+Click Forgot Password Link On Header Page
+  Click Element  ${lnk_fgt_pwd}
+Input Email On Password Reset Page
+  [Arguments]  ${text}
+  Input Text  ${inp_email}  ${text}
+Click Send On Password Reset Page
+  Click Element  ${btn_send}
+

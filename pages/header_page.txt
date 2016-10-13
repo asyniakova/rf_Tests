@@ -1,0 +1,7 @@
+***Settings***
+Resource  ../libs.txt
+***Variables***
+${btn_signup}  xpath=//a[contains(@href,'/accounts/register/')]
+***Keywords***
+Click Signup Button On Header Page
+  Click Element  ${btn_signup}

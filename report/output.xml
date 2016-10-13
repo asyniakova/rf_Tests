@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20161011 10:57:25.181" generator="Robot 2.8.6 (Python 2.7.12 on win32)">
+<suite source="C:\Tests3\test_cases\select_from_dna.txt" id="s1" name="Select From Dna">
+<kw type="setup" name="mysql_keywords.Connect to mySQL">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="DatabaseLibrary.Connect To Database Using Custom Params">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to </doc>
+<arguments>
+<arg>pymysql</arg>
+<arg>db='${db_name}', user='${db_user}', host='${db_host}', port=${db_port}</arg>
+</arguments>
+<status status="PASS" endtime="20161011 10:57:25.991" starttime="20161011 10:57:25.708"></status>
+</kw>
+<status status="PASS" endtime="20161011 10:57:25.991" starttime="20161011 10:57:25.705"></status>
+</kw>
+<test id="s1-t1" name="Select dna">
+<kw type="kw" name="${desc} = DatabaseLibrary.Query">
+<doc>Uses the input `selectStatement` to query for the values that </doc>
+<arguments>
+<arg>select sequence FROM aedes_aegypti_core_55_1d.dna where seq_region_id=4770</arg>
+</arguments>
+<msg timestamp="20161011 10:57:26.269" level="INFO">${desc} = [('TAATTAATTTGGCAATTTCTGATGGTATTTTCCATCGGATATTGTGTAAAATGATTTATAACCGCTTTGTAGAACAAATGGAACCACTGTGCATACTTATGATGAGCGGTGAATGGCGCCCTGTATCATTATCATACATTTTATTCGGTACCATTATACAATTTTCACATTTCAACCTTTGTTCTACAAAATCAATT...</msg>
+<status status="PASS" endtime="20161011 10:57:26.269" starttime="20161011 10:57:26.007"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${desc}[0]</arg>
+<arg>TAATTAATTTGGCAA</arg>
+</arguments>
+<status status="PASS" endtime="20161011 10:57:26.287" starttime="20161011 10:57:26.269"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20161011 10:57:26.289" critical="yes" starttime="20161011 10:57:25.991"></status>
+</test>
+<test id="s1-t2" name="Select greater">
+<kw type="kw" name="DatabaseLibrary.Row Count Is Greater Than X">
+<doc>Check if the number of rows returned from `selectStatement` is greater</doc>
+<arguments>
+<arg>select description FROM aedes_aegypti_core_55_1d.xref where external_db_id=2200</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20161011 10:57:26.438" starttime="20161011 10:57:26.291"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20161011 10:57:26.438" critical="yes" starttime="20161011 10:57:26.291"></status>
+</test>
+<doc>This file represents Database</doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20161011 10:57:26.438" starttime="20161011 10:57:25.183"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="2" id="s1" name="Select From Dna">Select From Dna</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

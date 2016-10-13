@@ -1,0 +1,30 @@
+==============================================================================
+20161011 10:57:25.704 - INFO - + START SUITE: Select From Dna [ ]
+==============================================================================
+20161011 10:57:25.705 - INFO - +- START SETUP: mysql_keywords.Connect to mySQL [ ]
+20161011 10:57:25.708 - INFO - +-- START KW: DatabaseLibrary.Connect To Database Using Custom Params [ pymysql | db='${db_name}', user='${db_user}', host='${db_host}', port=${db_port} ]
+20161011 10:57:25.991 - INFO - +-- END KW: DatabaseLibrary.Connect To Database Using Custom Params (283)
+20161011 10:57:25.991 - INFO - +- END SETUP: mysql_keywords.Connect to mySQL (286)
+------------------------------------------------------------------------------
+20161011 10:57:26.007 - INFO - +- START TEST: Select dna [ ]
+------------------------------------------------------------------------------
+20161011 10:57:26.007 - INFO - +-- START KW: ${desc} = DatabaseLibrary.Query [ select sequence FROM aedes_aegypti_core_55_1d.dna where seq_region_id=4770 ]
+20161011 10:57:26.007 - DEBUG - Executing : select sequence FROM aedes_aegypti_core_55_1d.dna where seq_region_id=4770
+20161011 10:57:26.269 - INFO - ${desc} = [('TAATTAATTTGGCAATTTCTGATGGTATTTTCCATCGGATATTGTGTAAAATGATTTATAACCGCTTTGTAGAACAAATGGAACCACTGTGCATACTTATGATGAGCGGTGAATGGCGCCCTGTATCATTATCATACATTTTATTCGGTACCATTATACAATTTTCACATTTCAACCTTTGTTCTACAAAATCAATT...
+20161011 10:57:26.269 - INFO - +-- END KW: ${desc} = DatabaseLibrary.Query (262)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20161011 10:57:26.285 - INFO - +-- START KW: BuiltIn.Should Contain [ ${desc}[0] | TAATTAATTTGGCAA ]
+20161011 10:57:26.288 - INFO - +-- END KW: BuiltIn.Should Contain (18)
+------------------------------------------------------------------------------
+20161011 10:57:26.291 - INFO - +- END TEST: Select dna (298)
+------------------------------------------------------------------------------
+20161011 10:57:26.291 - INFO - +- START TEST: Select greater [ ]
+------------------------------------------------------------------------------
+20161011 10:57:26.291 - INFO - +-- START KW: DatabaseLibrary.Row Count Is Greater Than X [ select description FROM aedes_aegypti_core_55_1d.xref where external_db_id=2200 | 10 ]
+20161011 10:57:26.291 - DEBUG - Executing : select description FROM aedes_aegypti_core_55_1d.xref where external_db_id=2200
+20161011 10:57:26.438 - INFO - +-- END KW: DatabaseLibrary.Row Count Is Greater Than X (147)
+------------------------------------------------------------------------------
+20161011 10:57:26.438 - INFO - +- END TEST: Select greater (147)
+------------------------------------------------------------------------------
+20161011 10:57:26.454 - INFO - + END SUITE: Select From Dna (1255)
+==============================================================================

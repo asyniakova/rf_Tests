@@ -1,0 +1,12 @@
+***Settings***
+Documentation  This file represents Database
+Resource  ../config.txt
+Suite Setup  Connect to mySQL  
+***Test Case***
+Select dna
+  ${desc}=  Query  select sequence FROM aedes_aegypti_core_55_1d.dna where seq_region_id=4770
+  Should Contain  ${desc}[0]  TAATTAATTTGGCAA 
+ 
+Select greater
+  Row Count Is Greater Than X  select description FROM aedes_aegypti_core_55_1d.xref where external_db_id=2200  10
+   
